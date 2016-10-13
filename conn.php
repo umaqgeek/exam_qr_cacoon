@@ -8,5 +8,7 @@ if (!$conn) {
     die("Error: ".mysql_error());
 }
 mysql_select_db($database);
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
 ?>

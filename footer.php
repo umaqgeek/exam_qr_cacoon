@@ -21,6 +21,10 @@ if (isset($_GET['error'])) {
             location.href = 'logout.php';
         });
     });
+    
+    function ask(question) {
+        return confirm(question);
+    }
 </script>
 
 </body>

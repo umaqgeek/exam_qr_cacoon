@@ -4,7 +4,7 @@
     <section id="addsubject" class="wrapper style1 fullscreen fade-up">
         <div class="inner">
             
-            <form method="post" action="">
+            <form method="post" action="process/addsubject_process.php">
                 <table class="table">
                     <tr>
                         <td>Subject Code</td>

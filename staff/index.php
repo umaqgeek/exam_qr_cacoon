@@ -73,15 +73,16 @@
                     <?php
                     if ($t2 > 0) {
                         do {
+                            $s_id = $d2['s_id'];
                     ?>
                     <tr>    
                         <td><?=$d2['s_code']; ?></td>
                         <td><?=$d2['s_name']; ?></td>
                         <td>
-                            <a href="">
+                            <a href="index.php?page=staff/editsubject.php&controller=1&s_id=<?=$s_id; ?>">
                                 <span class="fa fa-edit"></span>
                             </a>
-                            <a href="">
+                            <a onclick="return ask('Are you sure?');" href="staff/deletesubject.php?s_id=<?=$s_id; ?>">
                                 <span class="fa fa-remove"></span>
                             </a>
                         </td>

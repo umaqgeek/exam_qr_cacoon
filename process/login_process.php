@@ -1,12 +1,12 @@
 <?php
-require("conn.php");
+require("../conn.php");
 if (isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['password']) && !empty($_POST['password'])) {
     
     $user = $_POST['username'];
     $pwd = $_POST['password'];
     
     if ($user == '' || $user == null || $pwd == '' || $pwd == null) {
-        header("Location: index.php?error=Cannot leave blank!");
+        header("Location: ../index.php?error=Cannot leave blank!");
         die();
     }
     
@@ -19,7 +19,7 @@ if (isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['pas
         $_SESSION['password'] = $pwd;
         $_SESSION['logged_in'] = true;
         $_SESSION['type'] = 'student';
-        header("Location: index.php?page=student/index.php");
+        header("Location: ../index.php?page=student/index.php");
         die();
     } else {
         $sql2 = sprintf("SELECT * FROM staff1 WHERE s_number = '%s' AND s_password = '%s' ", $user, $pwd);
@@ -34,16 +34,16 @@ if (isset($_POST['username']) && !empty($_POST['username']) && isset($_POST['pas
             $type = ($d['s_type'] == 1) ? ('staff_1') : ('staff_2');
             $_SESSION['type'] = $type;
             $parent = ($d['s_type'] == 1) ? ('staff') : ('lecturer');
-            header("Location: index.php?page=".$parent."/index.php");
+            header("Location: ../index.php?page=".$parent."/index.php");
             die();
         } else {
-            header("Location: index.php?error=Invalid matric/staff no. or wrong password!");
+            header("Location: ../index.php?error=Invalid matric/staff no. or wrong password!");
             die();
         }
     }
     
 } else {
-    header("Location: index.php?error=Cannot leave blank!");
+    header("Location: ../index.php?error=Cannot leave blank!");
     die();
 }
 ?>
