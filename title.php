@@ -1,0 +1,1 @@
+<h2>QR Code Attendance Recording System</h2>
