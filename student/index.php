@@ -18,16 +18,33 @@
             ?>
             
             <div class="row">
-                <div class="col-sm-12">
-                    <img src="assets/images/uploads/<?=$d['u_profilepic']; ?>" class="img-circle" style="max-width: 200px; max-height: 200px;" /> 
+                <div class="col-sm-6">
+                    <img src="assets/images/uploads/<?=$d['u_profilepic']; ?>" class="img-circle" style="max-width: 200px; max-height: 200px;" />
+                </div>
+                <div class="col-sm-6">
+                    <center>
+                        My QR Code
+                        <br />
+                        <?php
+                        $str_code = $d['u_id'] . "|" . $username;
+                        $qrcode = generate_qr_code($str_code);
+                        echo $qrcode;
+                        ?>
+                        <br />
+                        <a target="_blank" href="student/print_qrcode.php?code=<?=$str_code; ?>">
+                            <span class="fa fa-print"></span>
+                            Print QR Code
+                        </a>
+                        <br /><br />
+                    </center> 
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <table width="100%">
+                    <table class="table">
                         <tr>
-                            <td>Matric No.</td>
-                            <td>:</td>
+                            <td width="20%">Matric No.</td>
+                            <td width="5px">:</td>
                             <td><strong><?=$d['u_matric']; ?></strong></td>
                         </tr>
                         <tr>

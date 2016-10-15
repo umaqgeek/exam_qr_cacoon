@@ -2,6 +2,9 @@
 <footer id="footer" class="wrapper style1-alt">
     <div class="inner">
         <ul class="menu">
+            <?php require("footermenubar.php"); ?>
+        </ul>
+        <ul class="menu">
             <li>&copy; Izhar 2016. All rights reserved.</li>
         </ul>
     </div>
