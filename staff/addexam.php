@@ -85,13 +85,6 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Number of Attendance</td>
-                        <td>:</td>
-                        <td>
-                            <input type="text" value="0" name="e_numstudent" class="form-control" placeholder="Number of attendance." />
-                        </td>
-                    </tr>
-                    <tr>
                         <td colspan="3">
                             <button class="btn btn-success" type="submit">Save</button>
                             <button class="btn btn-info" type="reset">Clear</button>

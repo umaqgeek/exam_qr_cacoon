@@ -27,7 +27,6 @@ if (isset($_GET['e_id']) && !empty($_GET['e_id'])) {
         $pecah22 = explode(' ', $e_endtimex1);
         $e_endtimex = (isset($pecah22[1])) ? ($pecah22[1]) : ("");
         $v_idx = $d['v_id'];
-        $e_numstudentx = (is_numeric($d['e_numstudent'])) ? ($d['e_numstudent']) : ("0");
         
     } else {
         header("Location: index.php?page=staff/index.php&error=Error: Access denied!#managestudsub");
@@ -124,13 +123,6 @@ if (isset($_GET['e_id']) && !empty($_GET['e_id'])) {
                                 }
                                 ?>
                             </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Number of Attendance</td>
-                        <td>:</td>
-                        <td>
-                            <input type="text" value="<?=$e_numstudentx; ?>" name="e_numstudent" class="form-control" placeholder="Number of attendance." />
                         </td>
                     </tr>
                     <tr>

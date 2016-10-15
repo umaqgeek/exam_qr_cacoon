@@ -182,13 +182,23 @@
                     if ($t4 > 0) {
                         do {
                             $e_id = $d4['e_id'];
+                            
+                            $sql_x1 = sprintf("SELECT * FROM stud_exam WHERE e_id = '%s' ", $e_id);
+                            $r_x1 = mysql_query($sql_x1) or die("Error: ".  mysql_error());
+                            $t_x1 = mysql_num_rows($r_x1);
+                            $attendance_all = $t_x1;
+                            
+                            $sql_x2 = sprintf("SELECT * FROM stud_exam WHERE e_id = '%s' AND ses_id = 2 ", $e_id);
+                            $r_x2 = mysql_query($sql_x2) or die("Error: ".  mysql_error());
+                            $t_x2 = mysql_num_rows($r_x2);
+                            $attendance_present = $t_x2;
                     ?>
                     <tr>    
                         <td><?=date('d/m/Y', strtotime($d4['e_datetime'])); ?></td>
                         <td><?=$d4['sub_code']; ?> <?=$d4['sub_name']; ?></td>
                         <td><?=date('h:i A', strtotime($d4['e_starttime'])); ?> - <?=date('h:i A', strtotime($d4['e_endtime'])); ?></td>
                         <td><?=$d4['v_desc']; ?></td>
-                        <td>0/<?=$d4['e_numstudent']; ?></td>
+                        <td><?=$attendance_present; ?>/<?=$attendance_all; ?></td>
                         <td>
                             <a href="index.php?page=staff/editexam.php&controller=1&e_id=<?=$e_id; ?>">
                                 <span class="fa fa-edit"></span>

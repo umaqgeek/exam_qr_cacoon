@@ -70,6 +70,23 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false) {
 <?php
             }
         } else if ($type == 'staff_2') {
+            $controller = (isset($_GET['controller'])) ? ($_GET['controller']) : (0);
+            if ($controller == 1) {
+                $link = "index.php?page=lecturer/index.php";
+                ?>
+<section id="sidebar">
+    <div class="inner">
+        <nav>
+            <ul>
+                <li><a href="<?=$link; ?>#profile">Profile Overview</a></li>
+                <li><a href="<?=$link; ?>#viewexam">View Examination</a></li>
+                <li><a href="logout.php">Log Out</a></li>
+            </ul>
+        </nav>
+    </div>
+</section>
+<?php
+            } else {
             ?>
 <section id="sidebar">
     <div class="inner">
@@ -83,6 +100,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false) {
     </div>
 </section>
 <?php
+            }
         }
     }
 ?>
