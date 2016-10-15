@@ -10,7 +10,7 @@ if (isset($_POST['s_code']) && !empty($_POST['s_code']) && isset($_POST['s_name'
         die();
     }
     
-    $sql = sprintf("INSERT INTO subject(s_code, s_name) VALUES('%s', '%s') ", $s_code, $s_name);
+    $sql = sprintf("INSERT INTO subject(sub_code, sub_name) VALUES('%s', '%s') ", $s_code, $s_name);
     mysql_query($sql) or die("<script>location.href='../index.php?page=staff/addsubject.php&controller=1&error=Error: ".mysql_error()."';</script>");
     header("Location: ../index.php?page=staff/index.php#subject");
     die();

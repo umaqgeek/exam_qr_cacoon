@@ -52,7 +52,7 @@
             <h3>Manage Subject</h3>
             
             <?php
-            $sql_2 = "SELECT * FROM subject ORDER BY s_name";
+            $sql_2 = "SELECT * FROM subject ORDER BY sub_name";
             $r2 = mysql_query($sql_2) or die("Error: ".  mysql_error());
             $t2 = mysql_num_rows($r2);
             $d2 = mysql_fetch_array($r2);
@@ -73,16 +73,16 @@
                     <?php
                     if ($t2 > 0) {
                         do {
-                            $s_id = $d2['s_id'];
+                            $s_id = $d2['sub_id'];
                     ?>
                     <tr>    
-                        <td><?=$d2['s_code']; ?></td>
-                        <td><?=$d2['s_name']; ?></td>
+                        <td><?=$d2['sub_code']; ?></td>
+                        <td><?=$d2['sub_name']; ?></td>
                         <td>
                             <a href="index.php?page=staff/editsubject.php&controller=1&s_id=<?=$s_id; ?>">
                                 <span class="fa fa-edit"></span>
                             </a>
-                            <a onclick="return ask('Are you sure?');" href="staff/deletesubject.php?s_id=<?=$s_id; ?>">
+                            <a onclick="return ask('Are you sure?');" href="process/deletesubject.php?s_id=<?=$s_id; ?>">
                                 <span class="fa fa-remove"></span>
                             </a>
                         </td>
@@ -94,11 +94,55 @@
         </div>
     </section>
     
-    <section id="viewexam" class="wrapper style2 fullscreen spotlights">
+    <section id="managelectsub" class="wrapper style3 fullscreen spotlights">
         <div class="inner">
 
             <?php require("title.php"); ?>
-            <h3>View Examination</h3>
+            <h3>Manage Lecturer-Subject</h3>
+            
+            <?php
+            $sql_3 = "SELECT * FROM lect_subject ls, staff1 s, subject sub "
+                    . "WHERE s.s_type = 2 "
+                    . "AND s.s_id = ls.s_id "
+                    . "AND sub.sub_id = ls.sub_id "
+                    . "ORDER BY s.s_name ASC ";
+            $r3 = mysql_query($sql_3) or die("Error: ".  mysql_error());
+            $t3 = mysql_num_rows($r3);
+            $d3 = mysql_fetch_array($r3);
+            ?>
+            
+            <a href="index.php?page=staff/addlectsubject.php&controller=1">
+                <button class="btn btn-success" type="button">Assign Lecturer</button>
+            </a>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Lecturer</th>
+                        <th>Subject</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if ($t3 > 0) {
+                        do {
+                            $ls_id = $d3['ls_id'];
+                    ?>
+                    <tr>    
+                        <td><?=$d3['s_name']; ?></td>
+                        <td><?=$d3['sub_code']; ?> <?=$d3['sub_name']; ?></td>
+                        <td>
+                            <a href="index.php?page=staff/editlectsubject.php&controller=1&ls_id=<?=$ls_id; ?>">
+                                <span class="fa fa-edit"></span>
+                            </a>
+                            <a onclick="return ask('Are you sure?');" href="process/deletelectsubject.php?ls_id=<?=$ls_id; ?>">
+                                <span class="fa fa-remove"></span>
+                            </a>
+                        </td>
+                    </tr>
+                    <?php } while ($d3 = mysql_fetch_array($r3)); } ?>
+                </tbody>
+            </table>
 
         </div>
     </section>

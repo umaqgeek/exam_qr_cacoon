@@ -15,7 +15,7 @@ if (isset($_POST['s_id']) && !empty($_POST['s_id'])
         die();
     }
     
-    $sql = sprintf("UPDATE subject SET s_code = '%s', s_name = '%s' WHERE s_id = '%s' ", $s_code, $s_name, $s_id);
+    $sql = sprintf("UPDATE subject SET sub_code = '%s', sub_name = '%s' WHERE sub_id = '%s' ", $s_code, $s_name, $s_id);
     mysql_query($sql) or die("<script>location.href='../index.php?page=staff/editsubject.php&controller=1&error=Error: ".mysql_error()."';</script>");
     header("Location: ../index.php?page=staff/index.php#subject");
     die();

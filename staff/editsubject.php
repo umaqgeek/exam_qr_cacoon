@@ -6,14 +6,14 @@ $s_name = "";
 if (isset($_GET['s_id']) && !empty($_GET['s_id'])) {
     
     $s_id = $_GET['s_id'];
-    $sql = sprintf("SELECT * FROM subject WHERE s_id = '%s' ", $s_id);
+    $sql = sprintf("SELECT * FROM subject WHERE sub_id = '%s' ", $s_id);
     $r = mysql_query($sql) or die("<script>location.href='index.php?page=staff/index.php&error=Error: ".mysql_error()."#subject'</script>");
     $t = mysql_num_rows($r);
     $d = mysql_fetch_array($r);
     if ($t > 0) {
         
-        $s_code = $d['s_code'];
-        $s_name = $d['s_name'];
+        $s_code = $d['sub_code'];
+        $s_name = $d['sub_name'];
         
     } else {
         header("Location: index.php?page=staff/index.php&error=Error: Access denied!#subject");

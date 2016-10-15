@@ -41,7 +41,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false) {
             <ul>
                 <li><a href="index.php?page=staff/index.php#profile">Profile Overview</a></li>
                 <li><a href="index.php?page=staff/index.php#subject">Manage Subject</a></li>
-                <li><a href="index.php?page=staff/index.php#viewexam">View Examination</a></li>
+                <li><a href="index.php?page=staff/index.php#managelectsub">Manage Lecturer-Subject</a></li>
                 <li><a href="logout.php">Log Out</a></li>
             </ul>
         </nav>
@@ -56,7 +56,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false) {
             <ul>
                 <li><a href="#profile">Profile Overview</a></li>
                 <li><a href="#subject">Manage Subject</a></li>
-                <li><a href="#viewexam">View Examination</a></li>
+                <li><a href="#managelectsub">Manage Lecturer-Subject</a></li>
                 <li><a href="logout.php">Log Out</a></li>
             </ul>
         </nav>
