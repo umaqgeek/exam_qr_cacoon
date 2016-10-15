@@ -45,6 +45,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false) {
                 <li><a href="<?=$link; ?>#managelectsub">Manage Lecturer-Subject</a></li>
                 <li><a href="<?=$link; ?>#managestudsub">Manage Examination</a></li>
                 <li><a href="<?=$link; ?>#managestudexam">Manage Student-Exam</a></li>
+                <li><a href="<?=$link; ?>#viewexam">View Examination</a></li>
                 <li><a href="logout.php">Log Out</a></li>
             </ul>
         </nav>
@@ -62,6 +63,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] == false) {
                 <li><a href="#managelectsub">Manage Lecturer-Subject</a></li>
                 <li><a href="#managestudsub">Manage Examination</a></li>
                 <li><a href="#managestudexam">Manage Student-Exam</a></li>
+                <li><a href="#viewexam">View Examination</a></li>
                 <li><a href="logout.php">Log Out</a></li>
             </ul>
         </nav>

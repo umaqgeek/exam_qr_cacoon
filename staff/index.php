@@ -274,6 +274,70 @@
             
         </div>
     </section>
+    
+    <section id="viewexam" class="wrapper style3 fullscreen">
+        <div class="inner">
+            
+            <?php require("title.php"); ?>
+            <h3>View Examination</h3>
+            
+            <?php
+            $sql_2 = sprintf("SELECT * FROM examination e, venue v, subject sub, "
+                    . "lect_subject ls, staff1 s "
+                    . "WHERE e.sub_id = sub.sub_id "
+                    . "AND sub.sub_id = ls.sub_id "
+                    . "AND ls.s_id = s.s_id "
+                    . "GROUP BY e.e_id ");
+            $r2 = mysql_query($sql_2) or die("Error: ". mysql_error());
+            $t2 = mysql_num_rows($r2);
+            $d2 = mysql_fetch_array($r2);
+            ?>
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Subject</th>
+                        <th>Time</th>
+                        <th>Venue</th>
+                        <th>Attendance</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if ($t2 > 0) {
+                        do {
+                            $e_id = $d2['e_id'];
+                            
+                            $sql_x1 = sprintf("SELECT * FROM stud_exam WHERE e_id = '%s' ", $e_id);
+                            $r_x1 = mysql_query($sql_x1) or die("Error: ".  mysql_error());
+                            $t_x1 = mysql_num_rows($r_x1);
+                            $attendance_all = $t_x1;
+                            
+                            $sql_x2 = sprintf("SELECT * FROM stud_exam WHERE e_id = '%s' AND ses_id = 2 ", $e_id);
+                            $r_x2 = mysql_query($sql_x2) or die("Error: ".  mysql_error());
+                            $t_x2 = mysql_num_rows($r_x2);
+                            $attendance_present = $t_x2;
+                    ?>
+                    <tr>    
+                        <td><?=date('d/m/Y', strtotime($d2['e_datetime'])); ?></td>
+                        <td><?=$d2['sub_code']; ?> <?=$d2['sub_name']; ?></td>
+                        <td><?=date('h:i A', strtotime($d2['e_starttime'])); ?> - <?=date('h:i A', strtotime($d2['e_endtime'])); ?></td>
+                        <td><?=$d2['v_desc']; ?></td>
+                        <td><?=$attendance_present; ?>/<?=$attendance_all; ?></td>
+                        <td>
+                            <a href="index.php?page=staff/viewexam.php&controller=1&e_id=<?=$e_id; ?>">
+                                <span class="fa fa-folder-open"></span>
+                            </a>
+                        </td>
+                    </tr>
+                    <?php } while ($d2 = mysql_fetch_array($r2)); } ?>
+                </tbody>
+            </table>
+            
+        </div>
+    </section>
 
 </div>
 
