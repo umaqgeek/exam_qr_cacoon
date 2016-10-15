@@ -34,6 +34,9 @@ if (isset($_GET['ls_id']) && !empty($_GET['ls_id'])) {
     <section id="addsubject" class="wrapper style1 fullscreen fade-up">
         <div class="inner">
             
+            <?php require("title.php"); ?>
+            <h3>Edit Lecturer-Subject</h3>
+            
             <form method="post" action="process/editlectsubject_process.php">
                 <input type="hidden" name="ls_id" id="ls_id" value="<?=$ls_idx; ?>" />
                 <table class="table">

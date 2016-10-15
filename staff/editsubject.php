@@ -32,6 +32,9 @@ if (isset($_GET['s_id']) && !empty($_GET['s_id'])) {
     <section id="addsubject" class="wrapper style1 fullscreen fade-up">
         <div class="inner">
             
+            <?php require("title.php"); ?>
+            <h3>Edit Subject</h3>
+            
             <form method="post" action="process/editsubject_process.php">
                 <input type="hidden" name="s_id" id="s_id" value="<?=$s_id; ?>" />
                 <table class="table">

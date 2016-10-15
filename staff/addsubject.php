@@ -4,6 +4,9 @@
     <section id="addsubject" class="wrapper style1 fullscreen fade-up">
         <div class="inner">
             
+            <?php require("title.php"); ?>
+            <h3>Add Subject</h3>
+            
             <form method="post" action="process/addsubject_process.php">
                 <table class="table">
                     <tr>
