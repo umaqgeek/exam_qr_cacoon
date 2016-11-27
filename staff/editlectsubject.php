@@ -1,5 +1,5 @@
 <?php
-require("conn.php");
+//require("conn.php");
 $ls_idx = -1;
 $s_idx = -1;
 $sub_idx = -1;

@@ -1,5 +1,5 @@
 <?php
-require("conn.php");
+//require("conn.php");
 $e_idx = 0;
 $sub_idx = -1;
 $e_datetimex = "";

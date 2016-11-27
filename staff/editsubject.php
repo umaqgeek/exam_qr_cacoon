@@ -1,5 +1,5 @@
 <?php
-require("conn.php");
+//require("conn.php");
 $s_id = 0;
 $s_code = "";
 $s_name = "";

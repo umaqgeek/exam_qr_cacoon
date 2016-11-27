@@ -1,5 +1,5 @@
 <?php
-require("conn.php");
+//require("conn.php");
 $se_idx = -1;
 $e_idx = -1;
 $u_idx = -1;
