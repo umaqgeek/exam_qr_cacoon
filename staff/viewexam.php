@@ -45,12 +45,7 @@ if (isset($_GET['e_id']) && !empty($_GET['e_id'])) {
                     <tr>
                         <td>Exam Date</td>
                         <td>:</td>
-                        <td><?=date('d/m/Y', strtotime($d['e_datetime'])); ?></td>
-                    </tr>
-                    <tr>
-                        <td>Exam Date</td>
-                        <td>:</td>
-                        <td><?=date('d/m/Y', strtotime($d['e_datetime'])); ?></td>
+                        <td><?=date('d/m/Y', strtotime($d['e_starttime'])); ?></td>
                     </tr>
                     <tr>
                         <td>Subject</td>
@@ -60,7 +55,7 @@ if (isset($_GET['e_id']) && !empty($_GET['e_id'])) {
                     <tr>
                         <td>Time</td>
                         <td>:</td>
-                        <td><?=date('h:i A', strtotime($d['e_starttime'])); ?> <?=date('h:i A', strtotime($d['e_endtime'])); ?></td>
+                        <td><?=date('h:i A', strtotime($d['e_starttime'])); ?> - <?=date('h:i A', strtotime($d['e_endtime'])); ?></td>
                     </tr>
                     <tr>
                         <td>Venue</td>
@@ -79,6 +74,38 @@ if (isset($_GET['e_id']) && !empty($_GET['e_id'])) {
                 <br />
                 <?php require("read_qr_code.php") ?>
             </div>
+            
+            <table class="table-bordered">
+                <tr>
+                    <td>Current Date/Time</td>
+                    <td>:</td>
+                    <td id="papartime">
+                        <?=date('d/m/Y H:i:s'); ?>
+                    </td>
+                </tr>
+            </table>
+            
+            <script>
+                function gettimeda() {
+                    $.ajax({
+                        url: "staff/ajax/gettime.php",
+                        type: "post",
+                        timeout: 10000,
+                        data: {},
+                        success: function (data1) {
+                            $("#papartime").html(data1);
+                            var t = setTimeout("gettimeda()", 1000);
+                        },
+                        error: function (err) {
+                            $("#papartime").html("Error!");
+                            var t = setTimeout("gettimeda()", 1000);
+                        }
+                    });
+                }
+                
+                gettimeda();
+                
+            </script>
             
             <hr />
             

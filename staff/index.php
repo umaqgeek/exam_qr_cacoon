@@ -293,6 +293,10 @@
             $d2 = mysql_fetch_array($r2);
             ?>
             
+            <a href="print_viewexam.php" target="_blank">
+                <button type="button" class="btn btn-info"> Print <span class="fa fa-print"></span> </button>
+            </a>
+            
             <table class="table">
                 <thead>
                     <tr>
@@ -321,7 +325,7 @@
                             $attendance_present = $t_x2;
                     ?>
                     <tr>    
-                        <td><?=date('d/m/Y', strtotime($d2['e_datetime'])); ?></td>
+                        <td><?=date('d/m/Y', strtotime($d2['e_starttime'])); ?></td>
                         <td><?=$d2['sub_code']; ?> <?=$d2['sub_name']; ?></td>
                         <td><?=date('h:i A', strtotime($d2['e_starttime'])); ?> - <?=date('h:i A', strtotime($d2['e_endtime'])); ?></td>
                         <td><?=$d2['v_desc']; ?></td>
